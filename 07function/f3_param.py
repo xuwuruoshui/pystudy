@@ -91,13 +91,3 @@ kw = {'d': 99, 'x': '#'}
 f1(*args, **kw)
 
 
-def mul(*x):
-  if len(x)==0:
-    raise TypeError
-  sum = 1
-
-  for v in x:
-    sum *=v
-  return sum
-  
-print(mul(10))
