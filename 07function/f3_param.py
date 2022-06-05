@@ -57,5 +57,47 @@ def cal1(**kv):
 
 
 cal1(name="张三", age=10)
-user = {"name":"张三", "age":10}
+user = {"name": "张三", "age": 10}
 cal1(**user)
+
+
+# 5.命名关键字参数
+# 5.1调用时*后面都得带名字
+def person(name, age, *, city, job):
+    print(name, age, city, job)
+
+
+# 调用时必须把名字带上
+person("张三", 12, city="成都", job="工程师")
+
+
+# 5.2已经有一个*了，后面都得带名字
+def person1(name, age, *arg, city, job):
+    print(name, age, arg, city, job)
+
+
+# 传string默认转元组
+person1("张三", 12, "aaa", city="成都", job="工程师")
+
+
+# 6.参数组合顺序
+# 必选参数、默认参数、可变参数、命名关键字参数和关键字参数。
+def f1(a, b, c=0, *args, **kw):
+    print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+
+f1(1, 2)
+args = (1, 2, 3, 4)
+kw = {'d': 99, 'x': '#'}
+f1(*args, **kw)
+
+
+def mul(*x):
+  if len(x)==0:
+    raise TypeError
+  sum = 1
+
+  for v in x:
+    sum *=v
+  return sum
+  
+print(mul(10))
